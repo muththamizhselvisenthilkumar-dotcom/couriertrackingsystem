@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courier Tracking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            text-align: center;
+            margin: 0;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Courier Tracking System</h1>
+</header>
+
+<div class="container">
+    <h2>Track Your Parcel</h2>
+    <input type="text" id="trackingId" placeholder="Enter Tracking ID">
+    <br><br>
+    <button onclick="trackCourier()">Track</button>
+
+    <div class="result" id="result" style="display:none;"></div>
+</div>
+
+<script>
+    function trackCourier() {
+        let id = document.getElementById("trackingId").value;
+        let resultDiv = document.getElementById("result");
+
+        if (id === "") {
+            alert("Please enter tracking ID");
+            return;
+        }
+
+        // Dummy tracking data (You can replace with database later)
+        let status = "";
+
+        if (id === "123") {
+            status = "📦 Package Shipped<br>Location: Chennai<br>Date: 25-Apr-2026";
+        } else if (id === "456") {
+            status = "🚚 Out for Delivery<br>Location: Bangalore<br>Date: 25-Apr-2026";
+        } else if (id === "789") {
+            status = "✅ Delivered<br>Location: Mumbai<br>Date: 24-Apr-2026";
+        } else {
+            status = "❌ Invalid Tracking ID";
+        }
+
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = "<strong>Status:</strong><br>" + status;
+    }
+</script>
+
+</body>
+</html>
